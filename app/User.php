@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function chief()
+    {
+        return $this->belongsTo(self::class);
+    }
+
+    public function children()
+    {
+        return $this->hasMany(self::class, 'chief_id');
+    }
 }
