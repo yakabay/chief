@@ -22,4 +22,4 @@ Route::get('/grid', 'PageController@index')->name('grid');
 Route::get('/tree', function () {
 	return view('tree');
 });
-Route::post('/tree/default', 'TreeController@default');
+Route::get('/tree/default', 'TreeController@default');

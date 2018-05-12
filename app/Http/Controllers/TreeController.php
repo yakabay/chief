@@ -16,6 +16,6 @@ class TreeController extends Controller
      */
     public function default()
     {
-        return UserResource::collection(User::all());
+        return UserResource::collection(User::with('children')->where('chief_id', '=', 0)->get());
     }
 }
