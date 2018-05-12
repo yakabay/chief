@@ -28,7 +28,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <a class="nav-link disabled" href="{{ url('/tree') }}">Tree</a>
-                <a class="nav-link disabled" href="{{ url('/home') }}">Grid</a>
+                <a class="nav-link disabled" href="{{ url('/grid') }}">Grid</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

@@ -69,7 +69,15 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
@@ -84,8 +92,8 @@
 
                 <div class="links">
                     <a href="{{ url('/tree') }}">Employees tree</a>
-                    <a href="{{ url('/home') }}">Employees grid view</a>
-                    <a href="https://github.com/yakabay/chief">GitHub</a>
+                    <a href="{{ url('/grid') }}">Employees grid view</a>
+                    <a target="_blank" href="https://github.com/yakabay/chief">GitHub</a>
                 </div>
             </div>
         </div>

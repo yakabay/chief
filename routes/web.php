@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/grid', 'PageController@index')->name('grid');
 Route::get('/tree', function () {
 	return view('tree');
 });
