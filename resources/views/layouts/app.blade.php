@@ -19,6 +19,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Custom styles -->
+    @yield('styles')
+
 </head>
 <body>
     <div id="app">
@@ -41,6 +45,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
                         <!-- Authentication Links -->
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
@@ -64,14 +69,20 @@
                                 </div>
                             </li>
                         @endguest
+
                     </ul>
                 </div>
             </div>
         </nav>
 
         <main class="py-4">
+
             @yield('content')
+
         </main>
     </div>
+
+    @yield('scripts')
+    
 </body>
 </html>

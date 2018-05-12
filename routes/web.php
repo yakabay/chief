@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/grid', 'PageController@index')->name('grid');
+
 Route::get('/tree', function () {
 	return view('tree');
 });
+Route::post('/tree/default', 'TreeController@default');
