@@ -15,11 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/grid', 'PageController@index')->name('grid');
-
 Route::get('/tree', function () {
 	return view('tree');
 });
+
+Auth::routes();
+Route::get('/grid', 'PageController@grid')->name('grid');
+
+// AJAX endpoints
 Route::get('/tree/default', 'TreeController@default');

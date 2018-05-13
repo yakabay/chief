@@ -17,12 +17,14 @@ class PageController extends Controller
     }
 
     /**
-     * Show main page
+     * Show grid view
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function grid()
     {
-        return view('grid');
+        $users = \App\User::paginate(12);
+
+        return view('grid', compact('users'));
     }
 }
