@@ -20,7 +20,7 @@
     </div>
 @endsection
 
-@section('scripts')
+@section('js')
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/jstree.min.js"></script>
     <script>
@@ -28,7 +28,7 @@
           $('#tree').jstree({
             'core' : {
               'data' : {
-                "url" : "/tree/default",
+                "url" : "ajax/tree-default",
                 "dataType" : "json" 
               }
             }

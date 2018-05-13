@@ -20,7 +20,9 @@ Route::get('/tree', function () {
 });
 
 Auth::routes();
-Route::get('/grid', 'PageController@grid')->name('grid');
+Route::get('/grid', 'PagesController@grid')->name('grid');
 
-// AJAX endpoints
-Route::get('/tree/default', 'TreeController@default');
+Route::prefix('ajax')->group(function () {
+	Route::get('/tree-default', 'TreeController@default');
+	Route::get('/users-default', 'GridController@default');
+});

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Http\Resources\UserResource;
 
-class PageController extends Controller
+class GridController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -17,14 +19,13 @@ class PageController extends Controller
     }
 
     /**
-     * Show grid view
+     * Return default list of users
      *
      * @return \Illuminate\Http\Response
      */
-    public function grid()
+    public function default()
     {
-        $users = \App\User::paginate(12);
 
-        return view('grid', compact('users'));
+        return User::all();
     }
 }
