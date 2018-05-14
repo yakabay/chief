@@ -23,9 +23,9 @@ class GridController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function default()
+    public function index(Request $request)
     {
 
-        return User::all();
+        return User::orderBy($request->sort, $request->order)->get();
     }
 }

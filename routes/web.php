@@ -24,5 +24,5 @@ Route::get('/grid', 'PagesController@grid')->name('grid');
 
 Route::prefix('ajax')->group(function () {
 	Route::get('/tree-default', 'TreeController@default');
-	Route::get('/users-default', 'GridController@default');
+	Route::get('/users', 'GridController@index');
 });
