@@ -2,8 +2,26 @@
 
 @section('content')
 <div class="container">
+    
     <div class="row justify-content-center">
         <div class="col-lg-10">
+            
+            <div class="row justify-content-between mb-4">
+                <div class="col-6 col-sm-5 col-md-4 col-lg-3">
+                    Sort by:
+                    <select class="form-control">
+                        <option value="sort=name&order=asc">Name (A-Z)</option>
+                        <option value="sort=name&order=dsc">Name (Z-A)</option>
+                        <option value="sort=position&order=asc">Position (A-Z)</option>
+                        <option value="sort=position&order=dsc">Position (Z-A)</option>
+                        <option value="sort=salary&order=dsc">Salary (highest)</option>
+                        <option value="sort=salary&order=asc">Salary (lowest)</option>
+                        <option value="sort=date&order=asc">Date (oldest)</option>
+                        <option value="sort=date&order=dsc">Date (newest)</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-header">Emploees grid view</div>
 
@@ -41,7 +59,7 @@
         var cardColumns = $('.card-columns');
 
         $(function() {
-          $.ajax({
+            $.ajax({
                 type : "GET",
                 url : "ajax/users-default",
                 success: function (users) {
@@ -50,6 +68,20 @@
                     });
                 }
             });
+
+            $('select').change(function () {
+                var query_params = $('option:selected', this).attr('value');
+                $.ajax({
+                    type : "GET",
+                    url : "ajax/users?" + query_params,
+                    success: function (users) {
+                        $.each(users, function(i, user){
+                            cardColumns.append('<div class="card text-white bg-info mb-3" style="max-width: 18rem;"><div class="card-header">' + user.position + '</div> <div class="card-body"><h5 class="card-title">' + user.name + '</h5><p class="card-text">salary: $' + user.salary + '<br>from ' + user.employment_date + '</p></div></div>');
+                        });
+                    }
+                });
+            })
+
         });
     </script>
 @endsection
