@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">Employees Tree</div>
+                    <div class="card-header" style="font-size: 1rem">Employees Tree</div>
 
                     <div class="card-body">
                         <div id="tree"></div>

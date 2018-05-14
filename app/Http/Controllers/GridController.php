@@ -27,6 +27,6 @@ class GridController extends Controller
     {
 
         // return User::orderBy($request->sort, $request->order)->get();
-        return User::orderBy($request->sort, $request->order)->simplePaginate(2);
+        return User::orderBy($request->sort, $request->order)->simplePaginate(12);
     }
 }

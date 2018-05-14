@@ -23,7 +23,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header">Emploees grid view</div>
+                <div class="card-header" style="font-size: 1rem">Emploees grid view</div>
                 
                 <div class="card-body">
                     <div  class="card-columns"></div>
