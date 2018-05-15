@@ -19,20 +19,3 @@
         </div>
     </div>
 @endsection
-
-@section('js')
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/jstree.min.js"></script>
-    <script>
-        $(function() {
-          $('#tree').jstree({
-            'core' : {
-              'data' : {
-                "url" : "ajax/tree-default",
-                "dataType" : "json" 
-              }
-            }
-          });
-        });
-    </script>
-@endsection
