@@ -16,8 +16,20 @@ use Faker\Generator as Faker;
 $factory->define(App\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'position' => function() {
+			$positions = ['director', 'top manager', 'manager', 'employee', 'worker', 'cleaner',];
+			$randomKey = array_rand($positions);
+			return $positions[$randomKey];
+		},
+        'employment_date' => $faker->date(),
+        'salary' => function() {
+        	return rand(5, 100)*100;
+        },
+        'chief_id' => function() {
+        	return rand(1, 20);
+        },
         'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'password' => bcrypt('123456'),
         'remember_token' => str_random(10),
     ];
 });
