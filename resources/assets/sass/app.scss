@@ -49,3 +49,9 @@ label[for=sort-select] {
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
 }
+
+
+.jstree li > a > .jstree-icon {
+  display:none !important; 
+} 
+

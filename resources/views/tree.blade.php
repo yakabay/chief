@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('styles')
+@section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 @endsection
 
