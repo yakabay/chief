@@ -150,6 +150,19 @@ $(function () {
     $('#search-input').focusout(function () {
         $(this).attr('placeholder', 'Search...');
     });
+
+    $('#search-input').keypress(function (e) {
+        if (e.which == 13) {
+            $.ajax({
+                type: "GET",
+                url: "ajax/search",
+                data: {
+                    "search": $(this).val()
+                },
+                success: showCards
+            });
+        }
+    });
 });
 
 /***/ })

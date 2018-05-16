@@ -19,14 +19,28 @@ class GridController extends Controller
     }
 
     /**
-     * Return default list of users
+     * Return list of users
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
 
-        // return User::orderBy($request->sort, $request->order)->get();
         return User::orderBy($request->sort, $request->order)->simplePaginate(12);
+    }
+
+    /**
+     * Return search results
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+
+        dd($request->search);
+        return User::where([
+            ['chief_id', 1],
+            // ['subscribed', '<>', '1'],
+        ])->get();
     }
 }

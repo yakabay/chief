@@ -30,8 +30,8 @@ $(function() {
 
     // Show cards with default sorting
     $.ajax({
-        type : "GET",
-        url : "ajax/users?sort=position&order=asc",
+        type: "GET",
+        url: "ajax/users?sort=position&order=asc",
         success: showCards
     });
 
@@ -39,8 +39,8 @@ $(function() {
     $('select').change(function () {
         var sort_params = $('option:selected').attr('value');
         $.ajax({
-            type : "GET",
-            url : "ajax/users?" + sort_params,
+            type: "GET",
+            url: "ajax/users?" + sort_params,
             success: showCards
         });
     })
@@ -49,8 +49,8 @@ $(function() {
     $('#next a').click(function() {
         var sort_params = $('option:selected').attr('value');
         $.ajax({
-            type : "GET",
-            url : next_page_url + "&" + sort_params,
+            type: "GET",
+            url: next_page_url + "&" + sort_params,
             success: showCards
         });
     })
@@ -59,8 +59,8 @@ $(function() {
     $('#prev a').click(function() {
         var sort_params = $('option:selected').attr('value');
         $.ajax({
-            type : "GET",
-            url : prev_page_url + "&" + sort_params,
+            type: "GET",
+            url: prev_page_url + "&" + sort_params,
             success: showCards
         });
     })    
@@ -74,7 +74,20 @@ $(function() {
         $(this).attr('placeholder', 'Search...');
     });
     
+    $('#search-input').keypress(function (e) {
+        if (e.which == 13) {
+        $.ajax({
+            type: "GET",
+            url: "ajax/search",
+            data: {
+                "search": $(this).val()        
+            },
+            success: showCards
+        });
+    } 
 });
+
+}); 
 
 
 

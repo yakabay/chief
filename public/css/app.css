@@ -10447,3 +10447,8 @@ label[for=sort-select] {
   font-size: 1rem;
 }
 
+#next a {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
