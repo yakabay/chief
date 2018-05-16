@@ -141,6 +141,15 @@ $(function () {
             success: showCards
         });
     });
+
+    // Search
+    $('#search-input').click(function () {
+        $(this).attr('placeholder', 'Enter position, name, salary or employment date');
+    });
+
+    $('#search-input').focusout(function () {
+        $(this).attr('placeholder', 'Search...');
+    });
 });
 
 /***/ })

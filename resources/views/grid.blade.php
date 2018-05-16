@@ -8,9 +8,9 @@
             
             <div class="row justify-content-between mb-3">
 
-                <div class="col-6 col-sm-5 col-md-4 col-lg-3">
-                    <label for="sortSelect">Sort by:</label>
-                    <select class="form-control" id="sortSelect">
+                <div class="col-sm-5 col-md-4 col-lg-3">
+                    <label for="sort-select">Sort by:</label>
+                    <select class="form-control" id="sort-select">
                         <option value="sort=position&order=asc">position (a-z)</option>
                         <option value="sort=position&order=dsc">position (z-a)</option>
                         <option value="sort=name&order=asc">name (a-z)</option>
@@ -22,8 +22,8 @@
                     </select>
                 </div>
 
-                <div class="col-sm">
-                        <input class="form-control" id="searchBox" type="text" name="search" placeholder="Search..">
+                <div class="col" id="search-box-container">
+                        <input class="form-control" id="search-input" type="text" name="search" placeholder="Search...">
                 </div>
 
             </div>

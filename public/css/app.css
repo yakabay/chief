@@ -10417,17 +10417,25 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-#searchBox {
+#search-input {
+  background-image: url("/img/searchicon.png");
+  background-position: 8px 8px;
+  background-repeat: no-repeat;
   float: right;
-  margin-top: 30px;
+  padding-left: 37px;
+  margin-top: 26px;
   width: 130px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
 
+label[for=sort-select] {
+  margin-bottom: 3px;
+}
+
 /* When the input field gets focus, change its width to 100% */
 
-#searchBox:focus {
+#search-input:focus {
   width: 100%;
 }
 

@@ -63,6 +63,32 @@ $(function() {
             url : prev_page_url + "&" + sort_params,
             success: showCards
         });
-    })            
+    })    
+
+    // Search
+    $('#search-input').click(function() {
+        $(this).attr('placeholder', 'Enter position, name, salary or employment date');
+    });
+
+    $('#search-input').focusout(function() {
+        $(this).attr('placeholder', 'Search...');
+    });
     
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
