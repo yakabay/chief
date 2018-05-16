@@ -11,10 +11,10 @@
                 <div class="col-sm-5 col-md-4 col-lg-3">
                     <label for="sort-select">Sort by:</label>
                     <select class="form-control" id="sort-select">
-                        <option value="sort=position&order=asc">position (a-z)</option>
-                        <option value="sort=position&order=dsc">position (z-a)</option>
                         <option value="sort=name&order=asc">name (a-z)</option>
                         <option value="sort=name&order=dsc">name (z-a)</option>
+                        <option value="sort=position&order=asc">position (a-z)</option>
+                        <option value="sort=position&order=dsc">position (z-a)</option>
                         <option value="sort=salary&order=dsc">salary (highest)</option>
                         <option value="sort=salary&order=asc">salary (lowest)</option>
                         <option value="sort=employment_date&order=asc">date (oldest)</option>

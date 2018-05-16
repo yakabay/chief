@@ -1,6 +1,8 @@
+
+var defaultSorting = 'sort=name&order=asc';
 var prev_page_url;
 var next_page_url;
-var pagination_params;
+var pagination_params = defaultSorting;
 var cardsContainer = $('.card-columns');
 var showCards = function (response) {
     
@@ -41,7 +43,7 @@ $(function() {
     // Show cards with default sorting
     $.ajax({
         type: "GET",
-        url: "ajax/users?sort=position&order=asc",
+        url: "ajax/users?" + defaultSorting,
         success: showCards
     });
 
@@ -60,7 +62,8 @@ $(function() {
     })
 
     // Pagination next
-    $('#next a').click(function() {
+    $('#next a').click(function(e) {
+        e.preventDefault();
         $.ajax({
             type: "GET",
             url: next_page_url + "&" + pagination_params,
@@ -69,7 +72,8 @@ $(function() {
     })
 
     // Pagination previous
-    $('#prev a').click(function() {
+    $('#prev a').click(function(e) {
+        e.preventDefault();
         $.ajax({
             type: "GET",
             url: prev_page_url + "&" + pagination_params,
