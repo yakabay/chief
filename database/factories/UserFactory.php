@@ -17,7 +17,7 @@ $factory->define(App\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'position' => function() {
-			$positions = ['director', 'top manager', 'manager', 'employee', 'worker', 'cleaner',];
+			$positions = ['director', 'top manager', 'manager', 'employee',];
 			$randomKey = array_rand($positions);
 			return $positions[$randomKey];
 		},

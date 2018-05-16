@@ -26,7 +26,7 @@ class GridController extends Controller
     public function index(Request $request)
     {
 
-        return User::orderBy($request->sort, $request->order)->simplePaginate(6);
+        return User::orderBy($request->sort, $request->order)->simplePaginate(12);
     }
 
     /**
@@ -41,6 +41,6 @@ class GridController extends Controller
                     ->orWhere('position', 'like', '%'.$request->search.'%')
                     ->orWhere('salary', 'like', '%'.$request->search.'%')
                     ->orWhere('employment_date', 'like', '%'.$request->search.'%')
-                    ->simplePaginate(6);
+                    ->simplePaginate(12);
     }
 }

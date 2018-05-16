@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
     	]);
     	factory(App\User::class, 90)->create([
     		'chief_id' => function() {
-    			return rand(1, 9);
+    			return rand(2, 9);
     		},
     		'position' => 'top manager',
     	]);
