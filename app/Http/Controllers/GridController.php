@@ -26,7 +26,7 @@ class GridController extends Controller
     public function index(Request $request)
     {
 
-        return User::orderBy($request->sort, $request->order)->simplePaginate(12);
+        return User::orderBy($request->sort, $request->order)->simplePaginate(6);
     }
 
     /**
@@ -37,10 +37,10 @@ class GridController extends Controller
     public function search(Request $request)
     {
 
-        dd($request->search);
-        return User::where([
-            ['chief_id', 1],
-            // ['subscribed', '<>', '1'],
-        ])->get();
+        return User::where('name', 'like', '%'.$request->search.'%')
+                    ->orWhere('position', 'like', '%'.$request->search.'%')
+                    ->orWhere('salary', 'like', '%'.$request->search.'%')
+                    ->orWhere('employment_date', 'like', '%'.$request->search.'%')
+                    ->simplePaginate(6);
     }
 }

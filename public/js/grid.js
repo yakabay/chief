@@ -78,6 +78,7 @@ module.exports = __webpack_require__(47);
 
 var prev_page_url;
 var next_page_url;
+var pagination_params;
 var cardsContainer = $('.card-columns');
 var showCards = function showCards(response) {
 
@@ -103,6 +104,15 @@ var showCards = function showCards(response) {
     next_page_url = response.next_page_url;
 };
 
+var showResponse = function showResponse(response) {
+
+    cardsContainer.empty();
+
+    $.each(response.data, function (i, user) {
+        cardsContainer.append('<p>' + response + '</p>');
+    });
+};
+
 $(function () {
 
     // Show cards with default sorting
@@ -115,6 +125,10 @@ $(function () {
     // Show cards after changing sorting
     $('select').change(function () {
         var sort_params = $('option:selected').attr('value');
+
+        // Taking parameters for pagination
+        pagination_params = sort_params;
+
         $.ajax({
             type: "GET",
             url: "ajax/users?" + sort_params,
@@ -124,35 +138,38 @@ $(function () {
 
     // Pagination next
     $('#next a').click(function () {
-        var sort_params = $('option:selected').attr('value');
         $.ajax({
             type: "GET",
-            url: next_page_url + "&" + sort_params,
+            url: next_page_url + "&" + pagination_params,
             success: showCards
         });
     });
 
     // Pagination previous
     $('#prev a').click(function () {
-        var sort_params = $('option:selected').attr('value');
         $.ajax({
             type: "GET",
-            url: prev_page_url + "&" + sort_params,
+            url: prev_page_url + "&" + pagination_params,
             success: showCards
         });
     });
 
-    // Search
+    // Search UI
     $('#search-input').click(function () {
-        $(this).attr('placeholder', 'Enter position, name, salary or employment date');
+        $(this).attr('placeholder', 'Enter name, position, salary or employment date');
     });
 
     $('#search-input').focusout(function () {
         $(this).attr('placeholder', 'Search...');
     });
 
+    // Search function
     $('#search-input').keypress(function (e) {
         if (e.which == 13) {
+
+            // Taking parameters for pagination
+            pagination_params = "search=" + $(this).val();
+
             $.ajax({
                 type: "GET",
                 url: "ajax/search",
