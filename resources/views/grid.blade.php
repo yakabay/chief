@@ -22,21 +22,21 @@
                     </select>
                 </div>
 
-                <div class="col mt-4">
-                    <input class="form-control" type="text" name="search" placeholder="Search..">
+                <div class="col-sm">
+                        <input class="form-control" id="searchBox" type="text" name="search" placeholder="Search..">
                 </div>
 
             </div>
 
             <div class="card">
-                <div class="card-header" style="font-size: 1rem">Emploees grid view</div>
+                <div class="card-header">Emploees grid view</div>
                 
                 <div class="card-body">
                     <div  class="card-columns"></div>
                 </div>
             </div>
 
-            <nav aria-label="Page navigation example" class="mt-1">
+            <nav aria-label="Page navigation example" class="mt-2">
                 <ul class="pagination justify-content-end">
                     <li class="page-item" id="prev">
                         <a class="page-link" href="#" tabindex="-1">Previous</a>

@@ -84,7 +84,7 @@ var showCards = function showCards(response) {
     cardsContainer.empty();
 
     $.each(response.data, function (i, user) {
-        cardsContainer.append('<div class="card text-white bg-info mb-3" style="max-width: 18rem;"><div class="card-header p-2 pl-3">' + user.position + '</div> <div class="card-body p-2 pl-3"><h5 class="card-subtitle my-1">' + user.name + '</h5><p class="card-text">salary: $' + user.salary + '<br>from ' + user.employment_date + '</p></div></div>');
+        cardsContainer.append('<div class="card card-user text-white bg-info mb-3"><div class="card-header p-2 pl-3">' + user.position + '</div> <div class="card-body p-2 pl-3"><h5 class="card-subtitle my-1">' + user.name + '</h5><p class="card-text">salary: $' + user.salary + '<br>from ' + user.employment_date + '</p></div></div>');
     });
 
     if (response.prev_page_url === null) {
