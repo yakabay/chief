@@ -40,7 +40,9 @@ class GridController extends Controller
         return User::where('name', 'like', '%'.$request->search.'%')
                     ->orWhere('position', 'like', '%'.$request->search.'%')
                     ->orWhere('salary', 'like', '%'.$request->search.'%')
-                    ->orWhere('employment_date', 'like', '%'.$request->search.'%')
+                    ->when(is_numeric($request->search), function ($query) use ($request) {
+                        return $query->orWhere('employment_date', 'like', '%'.$request->search.'%');
+                    })
                     ->simplePaginate(12);
     }
 }
