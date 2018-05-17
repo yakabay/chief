@@ -27,16 +27,7 @@ var showCards = function (response) {
     prev_page_url = response.prev_page_url;
     next_page_url = response.next_page_url;
 
-} 
-
-var showResponse = function (response) {
-    
-    cardsContainer.empty();
-    
-    $.each(response.data, function(i, user){
-        cardsContainer.append('<p>'+ response +'</p>');
-    });
-}   
+}  
 
 $(function() {
 

@@ -106,15 +106,6 @@ var showCards = function showCards(response) {
     next_page_url = response.next_page_url;
 };
 
-var showResponse = function showResponse(response) {
-
-    cardsContainer.empty();
-
-    $.each(response.data, function (i, user) {
-        cardsContainer.append('<p>' + response + '</p>');
-    });
-};
-
 $(function () {
 
     // Show cards with default sorting
