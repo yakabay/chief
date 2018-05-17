@@ -8,7 +8,7 @@
             
             <div class="row justify-content-between mb-3">
 
-                <div class="col-sm-5 col-md-4 col-lg-3">
+                <div class="col-sm-4 col-lg-3">
                     <label for="sort-select">Sort by:</label>
                     <select class="form-control" id="sort-select">
                         <option value="sort=name&order=asc">name (a-z)</option>
