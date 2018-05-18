@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/tree.js": "/js/tree.js",
+    "/js/grid_vue.js": "/js/grid_vue.js",
     "/js/grid.js": "/js/grid.js"
 }

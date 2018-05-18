@@ -10456,3 +10456,7 @@ label[for=sort-select] {
   display: none !important;
 }
 
+[v-cloak] {
+  display: none;
+}
+

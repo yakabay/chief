@@ -32,7 +32,11 @@
                 <div class="card-header">Emploees grid view</div>
                 
                 <div class="card-body">
-                    <div  class="card-columns"></div>
+                    <div  class="card-columns">
+                        <div id="card" v-cloak>
+                            @{{ message }}
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -54,5 +58,6 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('js/grid.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/grid.js') }}" defer></script> -->
+    <script src="{{ asset('js/grid_vue.js') }}" defer></script>
 @endsection
