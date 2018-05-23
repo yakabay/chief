@@ -28,7 +28,7 @@
 
             </div>
 
-            <div class="card">
+            {{-- <div class="card">
                 <div class="card-header">Emploees grid view</div>
                 
                 <div class="card-body">
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <nav aria-label="Page navigation example" class="mt-2">
                 <ul class="pagination justify-content-end">
