@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" id="app">
     
     <div class="row justify-content-center">
         <div class="col-lg-10">
@@ -28,17 +28,7 @@
 
             </div>
 
-            {{-- <div class="card">
-                <div class="card-header">Emploees grid view</div>
-                
-                <div class="card-body">
-                    <div  class="card-columns">
-                        <div id="card" v-cloak>
-                            @{{ message }}
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
+            <cards/>
 
             <nav aria-label="Page navigation example" class="mt-2">
                 <ul class="pagination justify-content-end">
@@ -59,5 +49,5 @@
 
 @section('js')
     <!-- <script src="{{ asset('js/grid.js') }}" defer></script> -->
-    <script src="{{ asset('js/grid_vue.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/grid_vue.js') }}" defer></script> -->
 @endsection

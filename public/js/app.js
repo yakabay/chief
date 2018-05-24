@@ -14001,11 +14001,11 @@ window.Vue = __webpack_require__(37);
  */
 
 Vue.component('example-component', __webpack_require__(40));
-Vue.component('cards-grid', __webpack_require__(43));
+Vue.component('cards', __webpack_require__(43));
 
-// const app = new Vue({
-//     el: '#app'
-// });
+var app = new Vue({
+  el: '#app'
+});
 
 /***/ }),
 /* 14 */
@@ -47404,7 +47404,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/CardsGrid.vue"
+Component.options.__file = "resources/assets/js/components/Cards.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47413,9 +47413,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-47bb1ebc", Component.options)
+    hotAPI.createRecord("data-v-39d5063c", Component.options)
   } else {
-    hotAPI.reload("data-v-47bb1ebc", Component.options)
+    hotAPI.reload("data-v-39d5063c", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47447,8 +47447,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
+    data: function data() {
+        return {
+            message: "Finaly!!! I have started to use Components!!!"
+        };
     }
 });
 
@@ -47466,7 +47468,7 @@ var render = function() {
     _c("div", { staticClass: "card-body" }, [
       _c("div", { staticClass: "card-columns" }, [
         _c("div", { attrs: { id: "card" } }, [
-          _vm._v("\n                @" + _vm._s(_vm.message) + "\n            ")
+          _vm._v("\n                " + _vm._s(_vm.message) + "\n            ")
         ])
       ])
     ])
@@ -47478,7 +47480,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-47bb1ebc", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-39d5063c", module.exports)
   }
 }
 

@@ -5,7 +5,7 @@
         <div class="card-body">
             <div  class="card-columns">
                 <div id="card" v-cloak>
-                    @{{ message }}
+                    {{ message }}
                 </div>
             </div>
         </div>
@@ -14,8 +14,10 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data() {
+            return {
+                message: "Finaly!!! I have started to use Components!!!"
+            }
         }
     }
 </script>
