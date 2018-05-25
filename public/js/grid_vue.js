@@ -76,14 +76,7 @@ module.exports = __webpack_require__(52);
 /***/ 52:
 /***/ (function(module, exports) {
 
-new Vue({
-  el: '#card',
-  data: function data() {
-    return {
-      message: 'VUEeeeeee.......hoooooo!!!!'
-    };
-  }
-});
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/macmini/www/chief/resources/assets/js/grid_vue.js'");
 
 /***/ })
 

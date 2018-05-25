@@ -28,7 +28,18 @@
 
             </div>
 
-            <cards/>
+            
+            <div class="card">
+                <div class="card-header">Emploees grid view</div>
+                
+                <div class="card-body">
+                    <div  class="card-columns">
+                        
+                        <card/>
+
+                    </div>
+                </div>
+            </div>
 
             <nav aria-label="Page navigation example" class="mt-2">
                 <ul class="pagination justify-content-end">
@@ -45,9 +56,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('js')
-    <!-- <script src="{{ asset('js/grid.js') }}" defer></script> -->
-    <!-- <script src="{{ asset('js/grid_vue.js') }}" defer></script> -->
 @endsection

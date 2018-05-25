@@ -12,7 +12,4 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-	.js('resources/assets/js/tree.js', 'public/js')
-	.js('resources/assets/js/grid.js', 'public/js')
-	.js('resources/assets/js/grid_vue.js', 'public/js')
    	.sass('resources/assets/sass/app.scss', 'public/css');
