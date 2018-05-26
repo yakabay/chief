@@ -11,22 +11,22 @@
 
 <script>
 
-    export default {
-        props: [
-            'position',
-            'name',
-            'salary',
-            'employmentDate'
-        ]
-    }
+export default {
+    props: [
+        'position',
+        'name',
+        'salary',
+        'employmentDate'
+    ]
+}
 
 </script>
 
 
 <style scoped>
 
-    .card {
-        max-width: 18rem;
-    }
+.card {
+    max-width: 18rem;
+}
 
 </style>

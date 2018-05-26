@@ -8,6 +8,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import { store } from './store/store';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -19,6 +20,7 @@ Vue.component('card', require('./components/Card.vue'));
 Vue.component('cards', require('./components/Cards.vue'));
 
 const app = new Vue({
+	store: store,
     el: '#app'
 });
 

@@ -14,16 +14,16 @@
 
 <script>
 
-    export default {
-        data() {
-            return {
-                users: []
-            }
-        },
-        created() {
-            axios.get('ajax/users?sort=name&order=asc').
-                then(response => this.users = response.data.data);
+export default {
+    data() {
+        return {
+            users: []
         }
+    },
+    created() {
+        axios.get('ajax/users?' + this.$store.state.defaultSorting).
+            then(response => this.users = response.data.data);
     }
+}
 
 </script>
