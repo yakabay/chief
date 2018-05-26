@@ -33,11 +33,9 @@
                 <div class="card-header">Emploees grid view</div>
                 
                 <div class="card-body">
-                    <div  class="card-columns">
-                        
-                        <card/>
 
-                    </div>
+                    <cards/>
+
                 </div>
             </div>
 

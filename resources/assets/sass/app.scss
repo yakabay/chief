@@ -13,6 +13,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+label[for=sort-select] {
+  margin-bottom: 3px;
+}
+
 #search-box-container {
 }
 
@@ -26,10 +30,6 @@
   width: 130px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-}
-
-label[for=sort-select] {
-  margin-bottom: 3px;
 }
 
 /* When the input field gets focus, change its width to 100% */
