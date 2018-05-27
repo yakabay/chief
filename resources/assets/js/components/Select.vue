@@ -23,8 +23,8 @@ export default {
 			    { text: 'position (z-a)', 	value: {sort: 'position', order: 'dsc'} },
 			    { text: 'salary (highest)', value: {sort: 'salary', order: 'dsc'} },
 			    { text: 'salary (lowest)', 	value: {sort: 'salary', order: 'asc'} },
-			    { text: 'date (oldest)', 	value: {sort: 'date', order: 'asc'} },
-			    { text: 'date (newest)',	value: {sort: 'date', order: 'dsc'} }
+			    { text: 'date (oldest)', 	value: {sort: 'employment_date', order: 'asc'} },
+			    { text: 'date (newest)',	value: {sort: 'employment_date', order: 'dsc'} }
 		     ]
 		}
 	},

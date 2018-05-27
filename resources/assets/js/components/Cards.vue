@@ -6,7 +6,7 @@
             :name="user.name"
             :position="user.position"
             :salary="user.salary"
-            :employmentDate="user.employmentDate"
+            :employmentDate="user.employment_date"
         />
     </div>
 </template>
