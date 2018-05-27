@@ -47282,7 +47282,25 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 	state: {
-		defaultSorting: 'sort=name&order=asc'
+		sort: 'name',
+		order: 'asc',
+		users: []
+	},
+	mutations: {
+		changeSorting: function changeSorting(state, payload) {
+			state.sortBy = payload.sortBy;
+			state.order = payload.order;
+		},
+		users: function users(state, payload) {
+			state.users = payload;
+		}
+	},
+	actions: {
+		sort: function sort(context) {
+			axios.get('ajax/users?sort=' + context.state.sort + '&order=' + context.state.order).then(function (response) {
+				return context.commit('users', response.data.data);
+			});
+		}
 	}
 });
 
@@ -47293,7 +47311,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 "use strict";
 /* unused harmony export Store */
 /* unused harmony export install */
-/* unused harmony export mapState */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return mapState; });
 /* unused harmony export mapMutations */
 /* unused harmony export mapGetters */
 /* unused harmony export mapActions */
@@ -48777,6 +48795,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(41);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 //
 //
 //
@@ -48791,20 +48812,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            users: []
-        };
-    },
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['users'])),
     created: function created() {
-        var _this = this;
-
-        axios.get('ajax/users?' + this.$store.state.defaultSorting).then(function (response) {
-            return _this.users = response.data.data;
-        });
+        this.$store.dispatch('sort');
     }
 });
 
@@ -48826,7 +48840,7 @@ var render = function() {
           name: user.name,
           position: user.position,
           salary: user.salary,
-          employmentDate: user.employment_date
+          employmentDate: user.employmentDate
         }
       })
     })

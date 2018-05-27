@@ -6,23 +6,23 @@
             :name="user.name"
             :position="user.position"
             :salary="user.salary"
-            :employmentDate="user.employment_date"
+            :employmentDate="user.employmentDate"
         />
     </div>
 </template>
 
 
 <script>
+import { mapState } from 'vuex'
 
 export default {
-    data() {
-        return {
-            users: []
-        }
+    computed: {
+        ...mapState([
+            'users'
+        ])
     },
     created() {
-        axios.get('ajax/users?' + this.$store.state.defaultSorting).
-            then(response => this.users = response.data.data);
+        this.$store.dispatch('sort');
     }
 }
 
