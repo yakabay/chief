@@ -22,17 +22,7 @@
                 </div>
             </div>
 
-            <nav aria-label="Page navigation example" class="mt-2">
-                <ul class="pagination justify-content-end">
-                    <li class="page-item" id="prev">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    
-                    <li class="page-item" id="next">
-                          <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
+            <pagination/>{{-- Pagination Component --}}
 
         </div>
     </div>

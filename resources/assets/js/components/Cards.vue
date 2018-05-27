@@ -25,5 +25,4 @@ export default {
         this.$store.dispatch('getUsers');
     }
 }
-
 </script>

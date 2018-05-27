@@ -24944,10 +24944,10 @@ module.exports = Vue;
 "use strict";
 /* unused harmony export Store */
 /* unused harmony export install */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return mapState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return mapState; });
 /* unused harmony export mapMutations */
 /* unused harmony export mapGetters */
-/* unused harmony export mapActions */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return mapActions; });
 /* unused harmony export createNamespacedHelpers */
 /**
  * vuex v3.0.1
@@ -26228,6 +26228,7 @@ window.Vue = __webpack_require__(12);
 Vue.component('card', __webpack_require__(44));
 Vue.component('cards', __webpack_require__(50));
 Vue.component('sort-select', __webpack_require__(53));
+Vue.component('pagination', __webpack_require__(62));
 
 var app = new Vue({
   store: __WEBPACK_IMPORTED_MODULE_0__store_store__["a" /* store */],
@@ -48538,9 +48539,11 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 	state: {
+		users: [],
 		sort: 'name',
 		order: 'asc',
-		users: []
+		prevPageUrl: '',
+		nextPageUrl: ''
 	},
 	mutations: {
 		updateSorting: function updateSorting(state, payload) {
@@ -48549,12 +48552,29 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 		},
 		updateUsers: function updateUsers(state, payload) {
 			state.users = payload;
+		},
+		updatePaginationLinks: function updatePaginationLinks(state, payload) {
+			state.prevPageUrl = payload.prev_page_url;
+			state.nextPageUrl = payload.next_page_url;
 		}
 	},
 	actions: {
 		getUsers: function getUsers(context) {
 			axios.get('ajax/users?sort=' + context.state.sort + '&order=' + context.state.order).then(function (response) {
-				return context.commit('updateUsers', response.data.data);
+				context.commit('updateUsers', response.data.data);
+				context.commit('updatePaginationLinks', response.data);
+			});
+		},
+		getPrevUsers: function getPrevUsers(context) {
+			axios.get(context.state.prevPageUrl + '&sort=' + context.state.sort + '&order=' + context.state.order).then(function (response) {
+				context.commit('updateUsers', response.data.data);
+				context.commit('updatePaginationLinks', response.data);
+			});
+		},
+		getNextUsers: function getNextUsers(context) {
+			axios.get(context.state.nextPageUrl + '&sort=' + context.state.sort + '&order=' + context.state.order).then(function (response) {
+				context.commit('updateUsers', response.data.data);
+				context.commit('updatePaginationLinks', response.data);
 			});
 		}
 	}
@@ -48646,7 +48666,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, "\n.card[data-v-2e0dd872] {\n    max-width: 18rem;\n}\n\n", ""]);
+exports.push([module.i, "\n.card[data-v-2e0dd872] {\n    max-width: 18rem;\n}\n", ""]);
 
 // exports
 
@@ -48701,7 +48721,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['position', 'name', 'salary', 'employmentDate']
@@ -48817,7 +48836,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['users'])),
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapState */])(['users'])),
     created: function created() {
         this.$store.dispatch('getUsers');
     }
@@ -48943,7 +48962,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, "\nlabel[data-v-447febf3] {\n  margin-bottom: 3px;\n}\n\n", ""]);
+exports.push([module.i, "\nlabel[data-v-447febf3] {\n  margin-bottom: 3px;\n}\n", ""]);
 
 // exports
 
@@ -48966,7 +48985,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -49050,6 +49068,205 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(65)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(63)
+/* template */
+var __vue_template__ = __webpack_require__(67)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-3895afde"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Pagination.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3895afde", Component.options)
+  } else {
+    hotAPI.reload("data-v-3895afde", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(13);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapState */])(['prevPageUrl', 'nextPageUrl'])),
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])(['getPrevUsers', 'getNextUsers']))
+});
+
+/***/ }),
+/* 64 */,
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(66);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(15)("2f48038e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3895afde\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Pagination.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3895afde\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Pagination.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(14)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#next a[data-v-3895afde] {\n    padding-left: 1.5rem;\n    padding-right: 1.5rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("nav", { staticClass: "mt-2" }, [
+    _c("ul", { staticClass: "pagination justify-content-end" }, [
+      _c(
+        "li",
+        {
+          staticClass: "page-item",
+          class: { disabled: !_vm.prevPageUrl },
+          attrs: { id: "prev" }
+        },
+        [
+          _c(
+            "a",
+            {
+              staticClass: "page-link",
+              attrs: { href: "#", tabindex: "-1" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.getPrevUsers($event)
+                }
+              }
+            },
+            [_vm._v("Previous")]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass: "page-item",
+          class: { disabled: !_vm.nextPageUrl },
+          attrs: { id: "next" }
+        },
+        [
+          _c(
+            "a",
+            {
+              staticClass: "page-link",
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.getNextUsers($event)
+                }
+              }
+            },
+            [_vm._v("Next")]
+          )
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3895afde", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

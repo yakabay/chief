@@ -10,7 +10,6 @@
 
 
 <script>
-
 export default {
     props: [
         'position',
@@ -19,14 +18,11 @@ export default {
         'employmentDate'
     ]
 }
-
 </script>
 
 
 <style scoped>
-
 .card {
     max-width: 18rem;
 }
-
 </style>
