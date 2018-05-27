@@ -48989,7 +48989,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
-			selected: {},
+			selected: { sort: 'name', order: 'asc' },
 			options: [{ text: 'name (a-z)', value: { sort: 'name', order: 'asc' } }, { text: 'name (z-a)', value: { sort: 'name', order: 'dsc' } }, { text: 'position (a-z)', value: { sort: 'position', order: 'asc' } }, { text: 'position (z-a)', value: { sort: 'position', order: 'dsc' } }, { text: 'salary (highest)', value: { sort: 'salary', order: 'dsc' } }, { text: 'salary (lowest)', value: { sort: 'salary', order: 'asc' } }, { text: 'date (oldest)', value: { sort: 'employment_date', order: 'asc' } }, { text: 'date (newest)', value: { sort: 'employment_date', order: 'dsc' } }]
 		};
 	},
@@ -49045,7 +49045,7 @@ var render = function() {
           ]
         }
       },
-      _vm._l(_vm.options, function(option) {
+      _vm._l(_vm.options, function(option, index) {
         return _c("option", { domProps: { value: option.value } }, [
           _vm._v("\n    \t" + _vm._s(option.text) + "\n \t\t")
         ])

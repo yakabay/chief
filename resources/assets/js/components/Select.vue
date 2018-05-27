@@ -2,7 +2,7 @@
 	<div>
 		<label for="sort-select">Sort by:</label>
 	    <select v-model="selected" @change="getUsers" class="form-control" id="sort-select">
-	  		<option v-for="option in options" :value="option.value">
+	  		<option v-for="(option, index) in options" :value="option.value">
 	    	{{ option.text }}
 	 		</option>
 		</select>
@@ -14,7 +14,7 @@
 export default {
 	data() {
 		return {
-			selected: {},
+			selected: {sort: 'name', order: 'asc'},
 		    options: [
 			    { text: 'name (a-z)', 		value: {sort: 'name', order: 'asc'} },
 			    { text: 'name (z-a)', 		value: {sort: 'name', order: 'dsc'} },
