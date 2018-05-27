@@ -10417,10 +10417,6 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-label[for=sort-select] {
-  margin-bottom: 3px;
-}
-
 #search-input {
   background-image: url("/img/searchicon.png");
   background-position: 8px 8px;

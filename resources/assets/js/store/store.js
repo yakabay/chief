@@ -10,18 +10,18 @@ export const store = new Vuex.Store({
 		users: []
 	},
 	mutations: {
-		changeSorting(state, payload) {
-			state.sortBy = payload.sortBy;
+		updateSorting(state, payload) {
+			state.sort = payload.sort;
 			state.order = payload.order;
 		},
-		users(state, payload) {
+		updateUsers(state, payload) {
 			state.users = payload;
 		}
 	},
 	actions: {
-		sort(context) {
+		getUsers(context) {
 			axios.get('ajax/users?sort=' + context.state.sort + '&order=' + context.state.order)
-            .then(response => context.commit('users', response.data.data))
+            .then(response => context.commit('updateUsers', response.data.data))
 		}
 	}
 })

@@ -18,6 +18,7 @@ import { store } from './store/store';
 
 Vue.component('card', require('./components/Card.vue'));
 Vue.component('cards', require('./components/Cards.vue'));
+Vue.component('sort-select', require('./components/Select.vue'));
 
 const app = new Vue({
 	store: store,

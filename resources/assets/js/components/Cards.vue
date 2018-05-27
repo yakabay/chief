@@ -22,7 +22,7 @@ export default {
         ])
     },
     created() {
-        this.$store.dispatch('sort');
+        this.$store.dispatch('getUsers');
     }
 }
 

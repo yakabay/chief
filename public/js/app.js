@@ -24972,6 +24972,7 @@ window.Vue = __webpack_require__(11);
 
 Vue.component('card', __webpack_require__(42));
 Vue.component('cards', __webpack_require__(50));
+Vue.component('sort-select', __webpack_require__(57));
 
 var app = new Vue({
   store: __WEBPACK_IMPORTED_MODULE_0__store_store__["a" /* store */],
@@ -47287,18 +47288,18 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 		users: []
 	},
 	mutations: {
-		changeSorting: function changeSorting(state, payload) {
-			state.sortBy = payload.sortBy;
+		updateSorting: function updateSorting(state, payload) {
+			state.sort = payload.sort;
 			state.order = payload.order;
 		},
-		users: function users(state, payload) {
+		updateUsers: function updateUsers(state, payload) {
 			state.users = payload;
 		}
 	},
 	actions: {
-		sort: function sort(context) {
+		getUsers: function getUsers(context) {
 			axios.get('ajax/users?sort=' + context.state.sort + '&order=' + context.state.order).then(function (response) {
-				return context.commit('users', response.data.data);
+				return context.commit('updateUsers', response.data.data);
 			});
 		}
 	}
@@ -48818,7 +48819,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['users'])),
     created: function created() {
-        this.$store.dispatch('sort');
+        this.$store.dispatch('getUsers');
     }
 });
 
@@ -48861,6 +48862,197 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(58)
+}
+var normalizeComponent = __webpack_require__(12)
+/* script */
+var __vue_script__ = __webpack_require__(60)
+/* template */
+var __vue_template__ = __webpack_require__(61)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-447febf3"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Select.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-447febf3", Component.options)
+  } else {
+    hotAPI.reload("data-v-447febf3", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(59);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(46)("f7c3662a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-447febf3\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Select.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-447febf3\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Select.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(45)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nlabel[data-v-447febf3] {\n  margin-bottom: 3px;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			selected: {},
+			options: [{ text: 'name (a-z)', value: { sort: 'name', order: 'asc' } }, { text: 'name (z-a)', value: { sort: 'name', order: 'dsc' } }, { text: 'position (a-z)', value: { sort: 'position', order: 'asc' } }, { text: 'position (z-a)', value: { sort: 'position', order: 'dsc' } }, { text: 'salary (highest)', value: { sort: 'salary', order: 'dsc' } }, { text: 'salary (lowest)', value: { sort: 'salary', order: 'asc' } }, { text: 'date (oldest)', value: { sort: 'date', order: 'asc' } }, { text: 'date (newest)', value: { sort: 'date', order: 'dsc' } }]
+		};
+	},
+
+	methods: {
+		getUsers: function getUsers() {
+			this.$store.commit('updateSorting', this.selected);
+			this.$store.dispatch('getUsers');
+		}
+	}
+});
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("label", { attrs: { for: "sort-select" } }, [_vm._v("Sort by:")]),
+    _vm._v(" "),
+    _c(
+      "select",
+      {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.selected,
+            expression: "selected"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { id: "sort-select" },
+        on: {
+          change: [
+            function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selected = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            },
+            _vm.getUsers
+          ]
+        }
+      },
+      _vm._l(_vm.options, function(option) {
+        return _c("option", { domProps: { value: option.value } }, [
+          _vm._v("\n    \t" + _vm._s(option.text) + "\n \t\t")
+        ])
+      })
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-447febf3", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -2,40 +2,23 @@
 
 @section('content')
 <div class="container" id="app">
-    
     <div class="row justify-content-center">
         <div class="col-lg-10">
             
             <div class="row justify-content-between mb-3">
-
                 <div class="col-sm-4 col-lg-3">
-                    <label for="sort-select">Sort by:</label>
-                    <select class="form-control" id="sort-select">
-                        <option value="sort=name&order=asc">name (a-z)</option>
-                        <option value="sort=name&order=dsc">name (z-a)</option>
-                        <option value="sort=position&order=asc">position (a-z)</option>
-                        <option value="sort=position&order=dsc">position (z-a)</option>
-                        <option value="sort=salary&order=dsc">salary (highest)</option>
-                        <option value="sort=salary&order=asc">salary (lowest)</option>
-                        <option value="sort=employment_date&order=asc">date (oldest)</option>
-                        <option value="sort=employment_date&order=dsc">date (newest)</option>
-                    </select>
+                    <sort-select/>{{-- Select Component --}}
                 </div>
 
                 <div class="col" id="search-box-container">
                         <input class="form-control" id="search-input" type="text" name="search" placeholder="Search...">
                 </div>
-
             </div>
 
-            
             <div class="card">
                 <div class="card-header">Emploees grid view</div>
-                
                 <div class="card-body">
-
-                    <cards/>
-
+                    <cards/>{{-- Cards Component --}}
                 </div>
             </div>
 
