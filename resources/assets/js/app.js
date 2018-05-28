@@ -20,6 +20,7 @@ Vue.component('card', require('./components/Card.vue'));
 Vue.component('cards', require('./components/Cards.vue'));
 Vue.component('sort-select', require('./components/Select.vue'));
 Vue.component('pagination', require('./components/Pagination.vue'));
+Vue.component('search', require('./components/Search.vue'));
 
 const app = new Vue({
 	store: store,

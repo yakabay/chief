@@ -13,26 +13,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-#search-box-container {
-}
-
-#search-input {
-  background-image: url('/img/searchicon.png');
-  background-position: 8px 8px;
-  background-repeat: no-repeat;
-  float: right;
-  padding-left: 37px;
-  margin-top: 26px;
-  width: 130px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-
-/* When the input field gets focus, change its width to 100% */
-#search-input:focus {
-  width: 100%;
-}
-
 .card-header {
   font-size: 1rem;
 }
