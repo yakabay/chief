@@ -48541,15 +48541,16 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 	state: {
 		users: [],
-		sort: 'name',
-		order: 'asc',
+		params: {
+			sort: 'name',
+			order: 'asc'
+		},
 		prevPageUrl: '',
 		nextPageUrl: ''
 	},
 	mutations: {
-		updateSorting: function updateSorting(state, payload) {
-			state.sort = payload.sort;
-			state.order = payload.order;
+		updateParams: function updateParams(state, payload) {
+			state.params = payload;
 		},
 		updateUsers: function updateUsers(state, payload) {
 			state.users = payload;
@@ -48561,19 +48562,25 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 	},
 	actions: {
 		getUsers: function getUsers(context) {
-			axios.get('ajax/users?sort=' + context.state.sort + '&order=' + context.state.order).then(function (response) {
+			axios.get('ajax/users', {
+				params: context.state.params
+			}).then(function (response) {
 				context.commit('updateUsers', response.data.data);
 				context.commit('updatePaginationLinks', response.data);
 			});
 		},
 		getPrevUsers: function getPrevUsers(context) {
-			axios.get(context.state.prevPageUrl + '&sort=' + context.state.sort + '&order=' + context.state.order).then(function (response) {
+			axios.get(context.state.prevPageUrl, {
+				params: context.state.params
+			}).then(function (response) {
 				context.commit('updateUsers', response.data.data);
 				context.commit('updatePaginationLinks', response.data);
 			});
 		},
 		getNextUsers: function getNextUsers(context) {
-			axios.get(context.state.nextPageUrl + '&sort=' + context.state.sort + '&order=' + context.state.order).then(function (response) {
+			axios.get(context.state.nextPageUrl, {
+				params: context.state.params
+			}).then(function (response) {
 				context.commit('updateUsers', response.data.data);
 				context.commit('updatePaginationLinks', response.data);
 			});
@@ -48997,7 +49004,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		getUsers: function getUsers() {
-			this.$store.commit('updateSorting', this.selected);
+			this.$store.commit('updateParams', this.selected);
 			this.$store.dispatch('getUsers');
 		}
 	}

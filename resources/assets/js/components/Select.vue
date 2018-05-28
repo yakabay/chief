@@ -29,7 +29,7 @@ export default {
 	},
 	methods: {
 		getUsers() {
-			this.$store.commit('updateSorting', this.selected);
+			this.$store.commit('updateParams', this.selected);
 			this.$store.dispatch('getUsers');
 		}
 	}

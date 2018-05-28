@@ -6,15 +6,16 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
 	state: {
 		users: [],
-		sort: 'name',
-		order: 'asc',
+		params: {
+			sort: 'name',
+			order: 'asc'
+		},
 		prevPageUrl: '',
 		nextPageUrl: ''
 	},
 	mutations: {
-		updateSorting(state, payload) {
-			state.sort = payload.sort;
-			state.order = payload.order;
+		updateParams(state, payload) {
+			state.params = payload;
 		},
 		updateUsers(state, payload) {
 			state.users = payload;
@@ -26,21 +27,27 @@ export const store = new Vuex.Store({
 	},
 	actions: {
 		getUsers(context) {
-			axios.get('ajax/users?sort=' + context.state.sort + '&order=' + context.state.order)
+			axios.get('ajax/users', {
+				params: context.state.params
+			})
             .then(response => {
             	context.commit('updateUsers', response.data.data);
             	context.commit('updatePaginationLinks', response.data);
             })
 		},
 		getPrevUsers(context) {
-			axios.get(context.state.prevPageUrl + '&sort=' + context.state.sort + '&order=' + context.state.order)
+			axios.get(context.state.prevPageUrl, {
+				params: context.state.params
+			})
             .then(response => {
             	context.commit('updateUsers', response.data.data);
             	context.commit('updatePaginationLinks', response.data);
             })
 		},
 		getNextUsers(context) {
-			axios.get(context.state.nextPageUrl + '&sort=' + context.state.sort + '&order=' + context.state.order)
+			axios.get(context.state.nextPageUrl, {
+				params: context.state.params
+			})
             .then(response => {
             	context.commit('updateUsers', response.data.data);
             	context.commit('updatePaginationLinks', response.data);
