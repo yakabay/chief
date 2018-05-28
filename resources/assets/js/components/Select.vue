@@ -14,7 +14,7 @@
 export default {
 	data() {
 		return {
-			selected: {sort: 'name', order: 'asc'},
+			selected: this.$store.state.params,
 		    options: [
 			    { text: 'name (a-z)', 		value: {sort: 'name', order: 'asc'} },
 			    { text: 'name (z-a)', 		value: {sort: 'name', order: 'dsc'} },
@@ -29,8 +29,7 @@ export default {
 	},
 	methods: {
 		getUsers() {
-			this.$store.commit('updateParams', this.selected);
-			this.$store.dispatch('getUsers');
+			this.$store.dispatch('getUsers', this.selected);
 		}
 	}
 }

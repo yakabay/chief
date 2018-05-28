@@ -26,14 +26,27 @@ export const store = new Vuex.Store({
 		}
 	},
 	actions: {
-		getUsers(context) {
+		getUsers(context, params = context.state.params) {
 			axios.get('ajax/users', {
-				params: context.state.params
+				params: params
 			})
             .then(response => {
             	context.commit('updateUsers', response.data.data);
             	context.commit('updatePaginationLinks', response.data);
             })
+
+            context.commit('updateParams', params);
+		},
+		searchUsers(context, params) {
+			axios.get('ajax/search', {
+				params: params
+			})
+            .then(response => {
+            	context.commit('updateUsers', response.data.data);
+            	context.commit('updatePaginationLinks', response.data);
+            })
+
+			context.commit('updateParams', params);
 		},
 		getPrevUsers(context) {
 			axios.get(context.state.prevPageUrl, {

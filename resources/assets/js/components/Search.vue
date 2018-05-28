@@ -1,24 +1,30 @@
 <template>
-    <input class="form-control" type="text" placeholder="Search...">
+    <input 
+        v-model="query.search" 
+        @focus="placeholder = 'Enter name, position, salary or employment date'"
+        @focusout="placeholder = 'Search...'"
+        @keyup.enter="getUsers"
+        :placeholder="placeholder"
+        class="form-control" 
+        type="text" 
+    >
 </template>
 
 
 <script>
-import { mapActions } from 'vuex'
-import { mapState } from 'vuex'
-
 export default {
-    computed: {
-        ...mapState([
-            'prevPageUrl',
-            'nextPageUrl'
-        ])
+    data() {
+        return {
+            placeholder: 'Search...',
+            query: {
+                search: ''
+            }
+        }
     },
     methods: {
-        ...mapActions([
-            'getPrevUsers',
-            'getNextUsers'
-        ])
+        getUsers() {
+            this.$store.dispatch('searchUsers', this.query);
+        }
     }
 }
 </script>

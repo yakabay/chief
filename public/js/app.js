@@ -48562,12 +48562,26 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 	},
 	actions: {
 		getUsers: function getUsers(context) {
+			var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : context.state.params;
+
 			axios.get('ajax/users', {
-				params: context.state.params
+				params: params
 			}).then(function (response) {
 				context.commit('updateUsers', response.data.data);
 				context.commit('updatePaginationLinks', response.data);
 			});
+
+			context.commit('updateParams', params);
+		},
+		searchUsers: function searchUsers(context, params) {
+			axios.get('ajax/search', {
+				params: params
+			}).then(function (response) {
+				context.commit('updateUsers', response.data.data);
+				context.commit('updatePaginationLinks', response.data);
+			});
+
+			context.commit('updateParams', params);
 		},
 		getPrevUsers: function getPrevUsers(context) {
 			axios.get(context.state.prevPageUrl, {
@@ -48997,15 +49011,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
-			selected: { sort: 'name', order: 'asc' },
+			selected: this.$store.state.params,
 			options: [{ text: 'name (a-z)', value: { sort: 'name', order: 'asc' } }, { text: 'name (z-a)', value: { sort: 'name', order: 'dsc' } }, { text: 'position (a-z)', value: { sort: 'position', order: 'asc' } }, { text: 'position (z-a)', value: { sort: 'position', order: 'dsc' } }, { text: 'salary (highest)', value: { sort: 'salary', order: 'dsc' } }, { text: 'salary (lowest)', value: { sort: 'salary', order: 'asc' } }, { text: 'date (oldest)', value: { sort: 'employment_date', order: 'asc' } }, { text: 'date (newest)', value: { sort: 'employment_date', order: 'dsc' } }]
 		};
 	},
 
 	methods: {
 		getUsers: function getUsers() {
-			this.$store.commit('updateParams', this.selected);
-			this.$store.dispatch('getUsers');
+			this.$store.dispatch('getUsers', this.selected);
 		}
 	}
 });
@@ -49373,21 +49386,35 @@ exports.push([module.i, "\ninput[data-v-7cdae69f] {\n  background-image: url('/i
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(13);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 //
 //
 //
 //
 //
-
-
-
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapState */])(['prevPageUrl', 'nextPageUrl'])),
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])(['getPrevUsers', 'getNextUsers']))
+    data: function data() {
+        return {
+            placeholder: 'Search...',
+            query: {
+                search: ''
+            }
+        };
+    },
+
+    methods: {
+        getUsers: function getUsers() {
+            this.$store.dispatch('searchUsers', this.query);
+        }
+    }
 });
 
 /***/ }),
@@ -49399,8 +49426,40 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("input", {
+    directives: [
+      {
+        name: "model",
+        rawName: "v-model",
+        value: _vm.query.search,
+        expression: "query.search"
+      }
+    ],
     staticClass: "form-control",
-    attrs: { type: "text", placeholder: "Search..." }
+    attrs: { placeholder: _vm.placeholder, type: "text" },
+    domProps: { value: _vm.query.search },
+    on: {
+      focus: function($event) {
+        _vm.placeholder = "Enter name, position, salary or employment date"
+      },
+      focusout: function($event) {
+        _vm.placeholder = "Search..."
+      },
+      keyup: function($event) {
+        if (
+          !("button" in $event) &&
+          _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+        ) {
+          return null
+        }
+        return _vm.getUsers($event)
+      },
+      input: function($event) {
+        if ($event.target.composing) {
+          return
+        }
+        _vm.$set(_vm.query, "search", $event.target.value)
+      }
+    }
   })
 }
 var staticRenderFns = []
