@@ -29,7 +29,7 @@ export default {
 	},
 	methods: {
 		getUsers() {
-			this.$store.dispatch('getUsers', this.selected);
+			this.$store.dispatch('getSortedUsers', this.selected);
 		}
 	}
 }

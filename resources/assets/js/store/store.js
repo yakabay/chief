@@ -26,7 +26,7 @@ export const store = new Vuex.Store({
 		}
 	},
 	actions: {
-		getUsers(context, params = context.state.params) {
+		getSortedUsers(context, params = context.state.params) {
 			axios.get('ajax/users', {
 				params: params
 			})
