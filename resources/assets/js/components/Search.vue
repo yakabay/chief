@@ -35,9 +35,7 @@ input {
   background-image: url('/img/searchicon.png');
   background-position: 8px 8px;
   background-repeat: no-repeat;
-  float: right;
   padding-left: 37px;
-  margin-top: 26px;
   width: 130px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;

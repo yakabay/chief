@@ -6,13 +6,15 @@
         <div class="col-lg-10">
             
     
-            <div class="row justify-content-between mb-3">
-                <div class="col-sm-4 col-lg-3">
+            <div class="row">
+                <div class="col-sm-4 col-lg-3 mb-3">
                     <sort-select/>{{-- Select Component --}}
                 </div>
 
-                <div class="col">
-                    <search/>{{-- Search Component --}}
+                <div class="col d-flex flex-column-reverse mb-3">
+                    <div class="d-sm-flex flex-row-reverse">
+                        <search/>{{-- Search Component --}}
+                    </div>
                 </div>
             </div>
 

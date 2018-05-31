@@ -49365,7 +49365,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\ninput[data-v-7cdae69f] {\n  background-image: url('/img/searchicon.png');\n  background-position: 8px 8px;\n  background-repeat: no-repeat;\n  float: right;\n  padding-left: 37px;\n  margin-top: 26px;\n  width: 130px;\n  -webkit-transition: width 0.4s ease-in-out;\n  transition: width 0.4s ease-in-out;\n}\n\n/* When the input field gets focus, change its width to 100% */\ninput[data-v-7cdae69f]:focus {\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, "\ninput[data-v-7cdae69f] {\n  background-image: url('/img/searchicon.png');\n  background-position: 8px 8px;\n  background-repeat: no-repeat;\n  padding-left: 37px;\n  width: 130px;\n  -webkit-transition: width 0.4s ease-in-out;\n  transition: width 0.4s ease-in-out;\n}\n\n/* When the input field gets focus, change its width to 100% */\ninput[data-v-7cdae69f]:focus {\n  width: 100%;\n}\n", ""]);
 
 // exports
 
